@@ -80,3 +80,21 @@ resource "aws_security_group" "web" {
     Name = "web-meetup-example"
   }
 }
+
+/* Security group for the db */
+resource "aws_security_group" "db" {
+  name = "db-meetup-example"
+  description = "Security group for db that allows traffic from app servers"
+  vpc_id = "${aws_vpc.default.id}"
+
+  ingress {
+    from_port = 3306
+    to_port   = 3306
+    protocol  = "tcp"
+    security_groups = ["${aws_security_group.web.id}"]
+  }
+
+  tags {
+    Name = "db-meetup-example"
+  }
+}

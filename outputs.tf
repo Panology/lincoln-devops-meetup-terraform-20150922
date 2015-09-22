@@ -17,3 +17,7 @@ output "nat.ip" {
 output "elb.hostname" {
   value = "${aws_elb.app.dns_name}"
 }
+
+output "db.address" {
+  value = "${aws_db_instance.meetup-db.address}"
+}

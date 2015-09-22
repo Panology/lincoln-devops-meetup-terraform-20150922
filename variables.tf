@@ -26,6 +26,16 @@ variable "private_subnet_cidr" {
   default     = "10.128.1.0/24"
 }
 
+variable "db1_subnet_cidr" {
+  description = "CIDR for db1 subnet"
+  default     = "10.128.2.0/24"
+}
+
+variable "db2_subnet_cidr" {
+  description = "CIDR for db1 subnet"
+  default     = "10.128.3.0/24"
+}
+
 /* Ubuntu 14.04 amis by region */
 variable "amis" {
   description = "Base AMI to launch the instances with"
